@@ -26,9 +26,21 @@ export default class App extends Component {
     event.preventDefault() // handle prevent default (refresh page) not approve on SPA
     console.info("Submited without Refresh Page!")
     console.log("Data : ", this.state)
+    this.setState({
+      makanans: [
+        ...this.state.makanans,
+        {
+          id: this.state.makanans.length + 1,
+          nama: this.state.nama,
+          deksirpsi: this.state.deskripsi,
+          harga: this.state.harga
+        }
+      ]
+    })
   }
 
   render() {
+    console.info(this.state.makanans)
     return (
       <div className="App">
         <NavbarComponent />
