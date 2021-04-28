@@ -24,6 +24,7 @@ export default class App extends Component {
 
   onSubmitHandle = (event) => {
     event.preventDefault() // handle prevent default (refresh page) not approve on SPA
+    console.info("Submited without Refresh Page!")
   }
 
   render() {
@@ -33,7 +34,7 @@ export default class App extends Component {
         <div className="container mt-4">
           <TabelComponent />
           <br/>
-          <FormComponent />
+          <FormComponent {...this.state} onChangeHandle={this.onChangeHandle} onSubmitHandle={ this.onSubmitHandle}/>
         </div>
       </div>
     )
