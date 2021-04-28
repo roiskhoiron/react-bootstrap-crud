@@ -1,12 +1,12 @@
 import React from 'react'
 import {Form, Button, Col, Row} from 'react-bootstrap'
 
-const FormComponent = ({nama, deskripsi, harga, onChangeHandle, onSubmitHandle}) => {
+const FormComponent = ({nama, deskripsi, harga, id, onChangeHandle, onSubmitHandle}) => {
   return (
     <div>
       <Row>
         <Col>
-          <h4>Tambah Data</h4>
+          <h4>{id ? "Edit Data":"Tambah Data"}Tambah Data</h4>
           <hr />
         </Col>
       </Row>
