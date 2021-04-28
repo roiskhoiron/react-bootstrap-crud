@@ -4,6 +4,28 @@ import NavbarComponent from './NavbarComponent'
 import TabelComponent from './TabelComponent'
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      makanans: [],
+      nama: "",
+      deksirpsi: "",
+      harga: 0,
+      id: ""
+    }
+  }
+  
+  onChangeHandle = (event) => {
+    this.setState({
+      [event.target.name] : event.target.value
+    })
+  }
+
+  onSubmitHandle = (event) => {
+    event.preventDefault() // handle prevent default (refresh page) not approve on SPA
+  }
+
   render() {
     return (
       <div className="App">
