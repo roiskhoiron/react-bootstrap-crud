@@ -85,6 +85,19 @@ export default class App extends Component {
     });
   };
 
+  onClickDelete = (id) => {
+    const dataTerbarukan = this.state.makanans
+      .filter((makanan) => makanan.id !== id)
+      .map((makananChoosed) => {
+        console.log(makananChoosed);
+        return makananChoosed;
+      });
+    
+    this.setState({
+      makanans: dataTerbarukan
+    });
+  }
+
   render() {
     console.info(this.state.makanans);
     return (
@@ -94,6 +107,7 @@ export default class App extends Component {
           <TabelComponent
             makanans={this.state.makanans}
             onClickEdit={this.onClickEdit}
+            onClickDelete={this.onClickDelete}
           />
           <br />
           <FormComponent
