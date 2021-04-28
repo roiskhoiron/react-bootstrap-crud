@@ -46,13 +46,31 @@ export default class App extends Component {
     })
   }
 
+  onClickEdit = (id) => {
+    const dataTarget = this.state.makanans
+      .filter((makanan) => makanan.id === id)
+      .map((makananChoosed) => {
+        return makananChoosed
+      })
+    
+    this.setState({
+      nama: dataTarget[0].nama,
+      deskripsi: dataTarget[0].deskripsi,
+      harga: dataTarget[0].harga,
+      id: dataTarget[0].id,
+    })
+  }
+
   render() {
     console.info(this.state.makanans)
     return (
       <div className="App">
         <NavbarComponent />
         <div className="container mt-4">
-          <TabelComponent makanans={this.state.makanans} />
+          <TabelComponent
+            makanans={this.state.makanans}
+            onClickEdit={this.onClickEdit}
+          />
           <br />
           <FormComponent
             {...this.state}
