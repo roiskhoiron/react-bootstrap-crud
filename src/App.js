@@ -32,11 +32,11 @@ export default class App extends Component {
         {
           id: this.state.makanans.length + 1,
           nama: this.state.nama,
-          deksirpsi: this.state.deskripsi,
-          harga: this.state.harga
-        }
-      ]
-    })
+          deskripsi: this.state.deskripsi,
+          harga: this.state.harga,
+        },
+      ],
+    });
   }
 
   render() {
@@ -45,12 +45,16 @@ export default class App extends Component {
       <div className="App">
         <NavbarComponent />
         <div className="container mt-4">
-          <TabelComponent />
-          <br/>
-          <FormComponent {...this.state} onChangeHandle={this.onChangeHandle} onSubmitHandle={ this.onSubmitHandle}/>
+          <TabelComponent makanans={this.state.makanans} />
+          <br />
+          <FormComponent
+            {...this.state}
+            onChangeHandle={this.onChangeHandle}
+            onSubmitHandle={this.onSubmitHandle}
+          />
         </div>
       </div>
-    )
+    );
   }
 }
 
